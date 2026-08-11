@@ -1,0 +1,27 @@
+@model IEnumerable<stagiaireCRUD.Models.Etudiant>
+
+    <h1>Liste des Etudiants</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prenom</th> 
+            <th>Email</th> 
+            <th>Etablissement</th>
+            <th>Debut de stage<th>  
+        </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var etudiant in Model)
+            {
+                <tr>
+                    <td>@etudiant.Nom</td>
+                    <td>@etudiant.prenom</td>
+                    <td>@etudiant.Email</td>
+                    <td>@etudiant.Etablissement</td>
+                    <td>@etudiant.DebutStage.ToShortDateString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>

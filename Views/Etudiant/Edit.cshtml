@@ -1,0 +1,26 @@
+@model stagiaireCRUD.Models.Etudiant
+<h1>Modifier un Etudiant</h1>
+<form method="post">
+    <input type="hidden" asp-for="Id"/>
+    <div>
+        <label>Nom</label>
+        <input asp-for="Nom"/>
+    </div>
+    <div>
+        <label>Prenom</label>
+        <input asp-for="prenom"/>
+    </div>
+    <div>
+        <label >Email</label>
+        <input asp-for="Email">
+    </div>
+    <div>
+        <label>Etablissement</label>
+        <input asp-for="Etablissement">
+    </div>
+    <div>
+        <label>Debut stage</label>
+        <input asp-for="DebutStage"/>
+    </div>
+    <button type="submit">Enregistrer</button>
+</form>
