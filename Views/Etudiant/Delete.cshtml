@@ -1,0 +1,8 @@
+@model stagiaireCRUD.Models.Etudiant
+<h1>Supprimer un Etudiant</h1>
+<p>Etes vous sur que vous voulez supprimer <strong>@Model.Nom @Model.prenom ?</strong></p>
+<input type="hidden" asp-for="Id"/>
+<form method="post">
+<button type="submit">confirmer</button>
+<a asp-action="Index">Annuler</a>
+</form>

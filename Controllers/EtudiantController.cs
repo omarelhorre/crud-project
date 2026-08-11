@@ -44,5 +44,18 @@ namespace stagiaireCRUD.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+        public IActionResult Delete(int id)
+        {
+            var etudiant = _context.Etudiants.Find(id);
+            return View(etudiant);
+        }
+        [HttpPost, ActionName("Delete")] //redefinition with the same name
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var etudiant = _context.Etudiants.Find(id);
+            _context.Etudiants.Remove(etudiant);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
