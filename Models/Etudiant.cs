@@ -35,4 +35,9 @@ public class Etudiant
         get;
         set;
     }
+    public String? password
+    {
+        get;
+        set;
+    }
 }

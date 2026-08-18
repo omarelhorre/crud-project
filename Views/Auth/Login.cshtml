@@ -1,0 +1,87 @@
+@using stagiaireCRUD.Migrations
+@if (ViewBag.Error != null)
+{
+    <div class = "error">@ViewBag.Error</div>
+}
+<style>
+.entire-div
+{
+    width: 300px;
+    margin: 80px auto;
+    padding: 32px;
+    border: 1px solid #FFFFFF;
+    border-radius: 8px;
+    box-shadow : 0 2px 8px rgba(0,0,0,0.08);
+    background-color: white;
+}
+h1
+{
+    text-align: center;
+    margin-bottom: 24px ;
+    font-size: 22px;
+    color : #333;
+}
+label 
+{
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500px;
+    font-size: 14px;
+    color: #555 ;
+}
+
+input
+{
+    width: 100%;
+    padding 10px 12px;
+    border : 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+input:focus{
+    outline : none;
+    border-color : #0d6efd;
+}
+
+button
+{
+    width: 100%;
+    padding : 10px;
+    background-color: #0d6efd;
+    color : white;
+    border : none;
+    border-radius : 6px;
+    font-size : 15px;
+    cursor : pointer;
+    margin-top : 6px;
+}
+button : hover 
+{
+    background-color: #0b5ed7;
+}
+
+.error
+{
+    color :  #d9534f;
+    background-color: #fdecea;
+    padding : 8px 12px;
+    font-size : 14px;
+    margin-bottom : 16px;
+    text-align: center;
+}
+
+</style>
+<form method="post" class = "entire-div" >
+    <h1>Connexion</h1>
+    <div>
+        <label>Email</label>
+        <input type="email" name="email"/>
+    </div>
+    <div>
+        <label>Mot de passe</label>
+        <input type="password" name="password"/>
+    </div>
+    <button type="submit">Se connecter</button>
+</form>

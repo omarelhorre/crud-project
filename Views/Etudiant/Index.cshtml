@@ -1,27 +1,113 @@
 @model IEnumerable<stagiaireCRUD.Models.Etudiant>
+    <style>
 
-    <h1>Liste des Etudiants</h1>
-    <table>
-        <thead>
-        <tr>
-            <th>Nom</th>
-            <th>Prenom</th> 
-            <th>Email</th> 
-            <th>Etablissement</th>
-            <th>Debut de stage<th>  
-        </tr>
-        </thead>
-        <tbody>
+    .container
+    {
+        width: 900px;
+        margin: 40px auto;
+        padding : 0 20px;
+    }
+    h1
+    {
+        margin-bottom: 24px;
+        color: #333;
+    }
+    table
+    {
+        width: 100%;
+        border-collapse: collapse;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        border-radius: 8px;
+        overflow: hidden;
+    }
 
-            @foreach (var etudiant in Model)
-            {
-                <tr>
-                    <td>@etudiant.Nom</td>
-                    <td>@etudiant.prenom</td>
-                    <td>@etudiant.Email</td>
-                    <td>@etudiant.Etablissement</td>
-                    <td>@etudiant.DebutStage.ToShortDateString()</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    thead
+    {
+        background-color: #0d6efd;
+        color: white;
+    }
+    th
+    {
+        padding: 14px 16px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 14px;
+        margin: 10px auto;
+    }
+    td
+    {
+        padding: 12px 16px;
+        border-bottom: 1px solid #eee;
+        font-size: 14px;
+        color: #444;
+    }
+    tr:hover 
+    {
+        backgroud-color: #f8f9fa;
+    }
+    tr:last-child td
+    {
+        border-bottom: none;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+        
+    }
+    .header
+    {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .button
+    {
+    
+        margin-bottom: 30px;
+        border: none;
+        padding: 10px 20px;
+        background-color: #0d6efd;
+        align-items: right;
+        border-radius: 6px;
+        color: white;
+    }
+    </style>
+    <div class="container">
+        <div class="header">
+            <h1>Liste des Etudiants</h1>
+            <a class="button" asp-action="Create">Create</a>
+        </div>
+
+        
+        <table>
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prenom</th> 
+                <th>Email</th> 
+                <th>Etablissement</th>
+                <th>Debut de stage</th> 
+                <th colspan="2">Actions</th> 
+            </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var etudiant in Model)
+                {
+                    <tr>
+                        <td>@etudiant.Nom</td>
+                        <td>@etudiant.prenom</td>
+                        <td>@etudiant.Email</td>
+                        <td>@etudiant.Etablissement</td>
+                        <td>@etudiant.DebutStage.ToShortDateString()</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@etudiant.Id">Modifier</a>
+                        </td>
+                         <td>
+                            <a asp-action="Delete" asp-route-id="@etudiant.Id">Supprimer</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
